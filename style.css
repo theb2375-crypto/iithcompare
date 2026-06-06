@@ -1,0 +1,209 @@
+/* Aesthetic Minimalist Palette & Variables */
+:root {
+    --bg-color: #F7F6F3; 
+    --box-bg: #FFFFFF;
+    --text-main: #22211F; 
+    --text-muted: #595754; 
+    --iith-accent: #D96B27; /* Premium IIT Hyderabad Amber/Coral Accent */
+    --iitd-accent: #A35043; /* Rich IIT Delhi Crimson/Rust Accent */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    overflow-x: hidden; 
+    -webkit-font-smoothing: antialiased; 
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hero Section / Top Image */
+.hero {
+    position: relative;
+    height: 100vh;
+    background-image: url('image_2bf9c1.jpg'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to right, rgba(15,15,15,0.85) 0%, rgba(15,15,15,0.2) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 5rem 4rem;
+}
+
+.hero-title {
+    color: #FFFFFF;
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: -1px; 
+    line-height: 1.2;
+    margin: 0;
+}
+
+.hero-title .highlight {
+    color: #E2DED5;
+    font-weight: 600;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 1.5px; 
+    text-transform: uppercase;
+    padding: 12px 28px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50px;
+    background: rgba(0,0,0,0.15);
+    backdrop-filter: blur(8px);
+    transition: all 0.4s ease;
+}
+
+.scroll-indicator:hover {
+    background: #FFFFFF;
+    color: #111111;
+}
+
+/* Container for Comparison Boxes */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+}
+
+/* === THE SCROLL ANIMATION === */
+.topic-box {
+    background: var(--box-bg);
+    border-radius: 20px; 
+    padding: 3.5rem;
+    margin-bottom: 4rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.035); 
+    
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.topic-box.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.topic-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    color: var(--text-main);
+}
+
+/* Split Layout */
+.split-layout {
+    display: flex;
+    gap: 3rem; 
+}
+
+.col {
+    flex: 1;
+    padding: 2.5rem;
+    border-radius: 16px;
+    background: #FAFAFA;
+    border: 1px solid #EBEAE8; 
+}
+
+/* Branding Accents & Subheadings */
+.col h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    margin-bottom: 1.2rem;
+}
+
+.col.iith h3 { color: var(--iith-accent); }
+.col.iitd h3 { color: var(--iitd-accent); }
+
+/* PARAGRAPH & LIST TYPOGRAPHY */
+.col p, .col li {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.85; 
+    letter-spacing: 0.2px; 
+    font-weight: 500;
+    margin-top: 0;
+}
+
+.col p strong, .col li strong {
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+.col ul {
+    padding-left: 1.2rem;
+    margin: 0;
+}
+
+.col li {
+    margin-bottom: 0.8rem;
+}
+
+/* =========================================
+   MOBILE COMPATIBILITY (RESPONSIVE DESIGN)
+   ========================================= */
+
+@media (max-width: 900px) {
+    .split-layout {
+        flex-direction: column; 
+        gap: 2rem;
+    }
+    .hero-content { padding: 4rem 2rem; }
+    .hero-title { font-size: 3.2rem; }
+    .topic-box { padding: 2.5rem; }
+}
+
+@media (max-width: 600px) {
+    .hero-content { padding: 3rem 1.5rem; }
+    .hero-title { font-size: 2.4rem; }
+    .container { padding: 4rem 1rem; }
+    .topic-box {
+        padding: 1.8rem; 
+        margin-bottom: 2.5rem;
+        border-radius: 16px;
+    }
+    .topic-title {
+        font-size: 1.4rem; 
+        margin-bottom: 1.5rem;
+    }
+    .col { padding: 1.5rem; }
+    .col p, .col li { font-size: 1rem; }
+    .scroll-indicator {
+        font-size: 0.8rem;
+        padding: 10px 20px;
+        bottom: 30px;
+    }
+}

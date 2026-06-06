@@ -172,12 +172,57 @@ body {
     margin-bottom: 0.8rem;
 }
 
+/* CONCLUSION BOX STYLES */
+.conclusion-box {
+    background: linear-gradient(145deg, #1A1A1A, #2A2A2A);
+    color: #FFFFFF;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+}
+
+.conclusion-box .topic-title {
+    color: #FFFFFF;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.conclusion-content > p {
+    font-size: 1.2rem;
+    color: #E2DED5;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+}
+
+.conclusion-split {
+    display: flex;
+    gap: 3rem;
+}
+
+.verdict-col {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.verdict-col h4 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #FFFFFF;
+}
+
+.verdict-col p {
+    color: #CCCCCC;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
 /* =========================================
    MOBILE COMPATIBILITY (RESPONSIVE DESIGN)
    ========================================= */
 
 @media (max-width: 900px) {
-    .split-layout {
+    .split-layout, .conclusion-split {
         flex-direction: column; 
         gap: 2rem;
     }
@@ -199,8 +244,8 @@ body {
         font-size: 1.4rem; 
         margin-bottom: 1.5rem;
     }
-    .col { padding: 1.5rem; }
-    .col p, .col li { font-size: 1rem; }
+    .col, .verdict-col { padding: 1.5rem; }
+    .col p, .col li, .verdict-col p { font-size: 1rem; }
     .scroll-indicator {
         font-size: 0.8rem;
         padding: 10px 20px;
